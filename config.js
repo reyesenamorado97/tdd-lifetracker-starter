@@ -8,7 +8,7 @@ function getDatabaseUri() {
   const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "postgres";
   const dbHost = process.env.DATABASE_HOST || "localhost";
   const dbPort = process.env.DATABASE_PORT || "5432";
-  const dbName = process.env.DATABASE_NAME || "vaccine_hub";
+  const dbName = process.env.DATABASE_NAME || "lifetracker";
 
   // if the DATABASE_URL environment variable, use it
   // else, create the db connection string

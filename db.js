@@ -1,10 +1,9 @@
 // import client from pg pack
 const { Client } = require("pg")
+const { getDatabaseUri } = require("./config")
 
-const { getDatabaseUri} = require("./config")
 require("colors")
 
-// CREATE DATABASE
 const db = new Client({ connectionString: getDatabaseUri() })
 
 db.connect((err) => {
