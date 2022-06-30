@@ -1,0 +1,26 @@
+{
+  "name": "tdd-lifetracker-starter",
+  "version": "1.0.0",
+  "description": "## Overview",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reyesenamorado97/tdd-lifetracker-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reyesenamorado97/tdd-lifetracker-starter/issues"
+  },
+  "homepage": "https://github.com/reyesenamorado97/tdd-lifetracker-starter#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.1",
+    "pg": "^8.7.3"
+  }
+}
