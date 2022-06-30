@@ -1,0 +1,56 @@
+.nav-links  {
+    width: 100%;
+    background: #2c4147;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 40px;
+}
+
+
+
+
+
+.nav-links  .links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin-left: auto;
+    flex: 1 1;
+    max-width: 650px;
+    grid-gap: 50px;
+    gap: 50px;
+    font-weight: 300;
+}
+
+.nav-links .links li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-weight: 300;
+
+}
+
+.nav-links  a {
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.nav-links .links .btn, button {
+    background: transparent;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all .1s ease;
+    padding: 12px 18px;
+    border-radius: 4px;
+    background: #00c98e;
+    color: #fff;
+}

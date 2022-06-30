@@ -1,0 +1,110 @@
+.Register {
+    min-height: calc(100vh - 100px);
+    height: 100%;
+    max-height: calc(100vh - 100px);
+    width: 100%;
+    max-width: 100vw;
+    background: #2c4147;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Register .card {
+    min-height: 600px;
+    width: 520px;
+    padding: 0px 30px 0 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Register .card .error {
+    color: red;
+  }
+  .Register .card h2 {
+    font-size: 42px;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .Register .card .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 10px;
+    color: white;
+  }
+  .Register .card .form .split-input-field  {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 50px;
+  }
+  .Register .card .form .input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 8px 0;
+    flex: 1;
+    background-color: transparent;
+    color: #eeeeee;
+    outline: none;
+    outline-style:
+    none; border-top:
+    none; border-left:
+    none; border-right:
+    none; border-bottom:
+    solid #eeeeee 1px;
+    
+    
+  }
+  .Register .card .form .input-field label {
+    margin-bottom: 5px;
+    color: white;
+    font-weight: 900;
+  }
+  .Register .card .form .input-field input {
+    
+    height: 50px;
+    padding: 0 15px;
+    font-size: 16px;
+    border-left: red;
+    border: solid 1px transparent;
+    width: 100%;
+    background: transparent;
+    color:white;
+    
+  }
+  .Register .card .form .input-field input::placeholder {
+    color: #878787;
+  }
+  .Register .card .form .btn {
+    width: 100%;
+    height: 70px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: var(--dark-blue); */
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  .Register .card .footer {
+    border-top: solid 1px #e4e4e4;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    color: white;
+  }
+  .Register .card .footer p {
+    color: white;
+  }
+  
+  
