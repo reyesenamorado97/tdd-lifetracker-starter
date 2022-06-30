@@ -16,6 +16,10 @@ app.use(cors());
 app.use(express.json());
 // log request info
 app.use(morgan("tiny"));
+
+// For every request, check if a token exists
+// in the authorization header
+// if it does, attach the decoded user to res.local
 app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRoutes)
