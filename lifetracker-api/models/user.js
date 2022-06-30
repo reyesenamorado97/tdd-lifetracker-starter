@@ -1,3 +1,6 @@
+const bcrypt = require("bcrypt");
+const { BCRYPT_WORK_FACTOR } = require("../../config");
+
 const db = require("../../db")
 const { BadRequestError ,UnauthorizedError } = require("../utils/errors")
 
@@ -47,7 +50,11 @@ class User {
              throw new BadRequestError(`Duplicate username: ${credentials.username}`);
          }
  
+        
+        
         // Take user password and hash it
+         const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
+
         // Take user email and lowercase it
         const lowerCasedEmail = credentials.email.toLowerCase();
 
@@ -62,7 +69,7 @@ class User {
             )
             VALUES ($1, $2, $3, $4, $5)
             RETURNING id, username, password, first_name, last_name, email, created_at, updated_at;
-        `, [credentials.username, credentials.password, credentials.first_name, credentials.last_name, lowerCasedEmail])
+        `, [credentials.username, hashedPassword, credentials.first_name, credentials.last_name, lowerCasedEmail])
 
         const user = result.rows[0];
  
