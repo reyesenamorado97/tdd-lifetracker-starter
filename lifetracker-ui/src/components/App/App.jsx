@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
 import Landing from "../Landing/Landing"
 import Register from "../Register/Register"
+import {useState, useEffect} from "react"
 
 
 import NoPage from "../NoPage/NoPage"
@@ -12,6 +13,9 @@ import ActivityPage from "components/ActivityPage/ActivityPage"
 
 export default function App() {
   let tempBool = false
+
+  const [user, setUser] = useState({});
+
 
   return (
     <div className="app">
@@ -47,7 +51,7 @@ export default function App() {
           <Route path="/register" element={
               <>
                   <Navbar />
-                  <Register />
+                  <Register user={user} setUser={setUser}/>
               </>
             }
           />

@@ -5,17 +5,37 @@ const db = require("../../db")
 const { BadRequestError ,UnauthorizedError } = require("../utils/errors")
 
 class User {
+
+    static makePublicUser(user) {
+        return {
+            id: user.id,
+            username: user.username,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.email,
+            created_at: user.created_at
+        }
+      }
     static async login(credentials) {
+  
+    const requiredFields = ["email", "password"];
+    requiredFields.forEach((property) => {
+      if (!credentials.hasOwnProperty(property)) {
+        throw new BadRequestError(`Missing ${property} in request body.`);
+      }
+    });
 
-        const requiredFields = ["email", "password"];
-        requiredFields.forEach((field) => {
-            if (!credentials.hasOwnProperty(field)) {
-              throw new BadRequestError("Error! Please input an email and password.");
-            }
-          });
-
-        throw new UnauthorizedError("Invalid email/password combo")
+    const user = await User.fetchUserByEmail(credentials.email);
+        
+    if (user) {
+      const isValid = await bcrypt.compare(credentials.password, user.password);
+      if (isValid) {
+          return User.makePublicUser(user);
+      }
     }
+
+    throw new UnauthorizedError("Invalid username/password combo");
+  }
 
     static async register(credentials) {
         // User should submit email, password
@@ -73,7 +93,8 @@ class User {
 
         const user = result.rows[0];
  
-        return user;
+
+        return User.makePublicUser(user);
     }
  
     static async fetchUserByEmail(email) {
