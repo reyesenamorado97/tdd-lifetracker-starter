@@ -25,9 +25,14 @@ class User {
         })
        
         // Error: if user with same email already exists
-        const existingUser = await User.fetchUserByEmail(credentials.email);
-        if (existingUser) {
+        const existingEmail = await User.fetchUserByEmail(credentials.email);
+        if (existingEmail) {
             throw new BadRequestError(`Duplicate email: ${credentials.email}`);
+        }
+
+        const existingUsername = await User.fetchUserByEmail(credentials.username);
+        if (existingUsername) {
+            throw new BadRequestError(`Duplicate username: ${credentials.username}`);
         }
  
         // Take user password and hash it
@@ -37,15 +42,16 @@ class User {
         // Create new user in database with all their info
         const result = await db.query(`
             INSERT INTO users (
-                email,
+                username,
                 password,
                 first_name,
                 last_name,
-                location,
-                date
+                email,
+                created_at,
+                updated_at
             )
             VALUES ($1, $2, $3, $4, $5, $6)
-            RETURNING id, email, password, first_name, last_name, location, date;
+            RETURNING id, username, password, first_name, last_name, email, created_at, updated_at;
         `, [lowerCasedEmail, credentials.password, credentials.first_name, credentials.last_name, credentials.location, credentials.date])
         // Return user
         const user = result.rows[0];
@@ -61,6 +67,20 @@ class User {
         const query = `SELECT * FROM users WHERE email = $1`;
  
         const result = await db.query(query, [email.toLowerCase()]);
+ 
+        const user = result.rows[0];
+ 
+        return user;
+    }
+
+    static async fetchUserByUsername(username) {
+        if (!username) {
+            throw new BadRequestError("No username provided");
+        }
+ 
+        const query = `SELECT * FROM users WHERE username = $1`;
+ 
+        const result = await db.query(query, [username.toLowerCase()]);
  
         const user = result.rows[0];
  
