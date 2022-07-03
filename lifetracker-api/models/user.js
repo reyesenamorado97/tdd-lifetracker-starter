@@ -6,6 +6,8 @@ const { BadRequestError ,UnauthorizedError } = require("../utils/errors")
 
 class User {
 
+    
+
     static makePublicUser(user) {
         return {
             id: user.id,
@@ -47,9 +49,11 @@ class User {
             "email"
             
         ];
+        console.log("here")
+
         // Error: if any fields are missing
         requiredFields.forEach(field => {
-            if(!credentials.hasOwnProperty(field)) {
+            if (!credentials.hasOwnProperty(field)) {
                 throw new BadRequestError(`Missing ${field} in request body`);
             }
         })

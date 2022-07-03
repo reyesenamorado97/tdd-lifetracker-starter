@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Register.css"
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
+
+import apiClient from "../../../../services/apiClient"
 
 
-export default function Register(user, setUser) {
+export default function Register({ user, setUser }) {
     
+
     const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
+    const navigate = useNavigate()
 
     const [form, setForm] = useState({
         firstName: "",
@@ -15,11 +19,42 @@ export default function Register(user, setUser) {
         email: "",
         password: "",
         passwordConfirm: "",
-      });
+    });
+    
+    useEffect(() => {
+        if (user?.email) {
+            navigate("/activity")
+        }
+    }, [user,navigate])
 
+    const handleOnSubmit = async () => {
+        if (form.passwordConfirm !== form.password) {
+            setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }));
+            //setIsProcessing(false);
+            return;
+          } else {
+           // setErrors((e) => ({ ...e, passwordConfirm: null }));
+          }
+          const { data, error } = await apiClient.signupUser({
+            first_name: form.firstName,
+            username: form.username,
+            last_name: form.lastName,
+            email: form.email,
+            password: form.password,
+          });
+          //if (error) setErrors((e) => ({ ...e, form: error }));
+          if (data?.user) {
+            setUser(data.user);
+            apiClient.setToken(data.token);
+          }
+        console.log(form)
+          //setIsProcessing(false);
+        };
+    
+    
     const handleOnInputChange = (event) => {
         if (event.target.name === "email") {
-            if (!event.target.value.includes("@")) {
+            if (!event.target.value.includes("@") || event.target.value[0] == "@") {
                 //console.log("not here")
                 setEmailError(true)
             }
@@ -93,7 +128,7 @@ export default function Register(user, setUser) {
                         : ""
                     }
 
-                    <button className="btn">Create Account</button>
+                    <button className="btn" onClick={handleOnSubmit}>Create Account</button>
                 </div>
                 
                 <div className="footer">
@@ -105,4 +140,7 @@ export default function Register(user, setUser) {
             </div>
         </div>
 
-)}
+    )
+}
+
+//{Boolean(errors.form) && <span className="error">{errors.form}</span>}

@@ -1,5 +1,80 @@
 # Project #3: LifeTracker Application
 
+Submitted by: **Robert Reyes-Enamorado**
+
+Deployed Application: [](ADD_LINK_HERE)
+
+## Application Features
+
+### Core Features
+
+- [x] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
+  - [x] If the user is logged in, it should display a **Sign Out** button. 
+  - [x] If no user is logged in, it should display **Login** and **Register** buttons
+  - [x] Display a logo on the far left side, and contain links to the individual detailed activity page. 
+- [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
+- [x] **Login Page:** A form that allows users to login with email and password.
+- [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
+- [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
+- [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
+- [ ] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
+- [ ] Deployed website with Heroku & Surge. 
+
+**Detailed Activity Page:**
+- [ ] The detailed activity page should display a feed of all previous tracked activities.
+- [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
+- [ ] The activity tracked should be given a unique id for easy lookup.
+  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
+  * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
+
+### Stretch Features
+
+Implement any of the following features to improve the application:
+- [ ] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
+- [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
+- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
+
+## GIFs
+ 
+##### Navbar routing functionality
+![](https://i.imgur.com/LsUzUh0.gif)
+
+<br>
+
+##### Navbar changes when logged in
+![](https://i.imgur.com/fE61OQk.gif)
+
+<br>
+
+##### Navbar changes when logging out
+![](https://i.imgur.com/lFeOBAG.gif)
+
+<br>
+
+##### Landing page
+![](https://i.imgur.com/JYjd8oF.gif)
+
+<br>
+
+##### Registering a new user
+![](https://i.imgur.com/CSho15s.gif)
+
+<br>
+
+##### Logging in with new user
+![](https://i.imgur.com/Iadz9T6.gif)
+
+<br>
+
+#### Access resources & allows users to access resources about themselves ONLY
+![](https://i.imgur.com/EjmldDg.gif)
+
+
+<br>
+
+
 ## Overview
 
 > Data is the new oil - Clive Humbly
@@ -805,3 +880,4 @@ Here are the pieces of functionality that should be built out for the backend:
 ## Wrapping Up and Resources
 
 This is a huge project and represents a complete application with user-owned resources. Accordingly, it can, should, and will test the limits of your capabilities. Do your best and don't be afraid to Google! Especially in regards to any SQL that might be tricky.
+

@@ -5,6 +5,8 @@ const { PORT } = require("../config")
 const security = require("./middleware/security")
 
 const authRoutes = require("./routes/auth.js")
+const nutritionRoutes = require("./routes/nutrition");
+
 
 const { BadRequestError, NotFoundError } = require("./utils/errors")
 
@@ -22,7 +24,10 @@ app.use(morgan("tiny"));
 // if it does, attach the decoded user to res.local
 app.use(security.extractUserFromJwt)
 
+// SET ROUTES
 app.use("/auth", authRoutes)
+app.use("/nutrition", nutritionRoutes);
+
 
 
 app.use((req, res, next) => {
@@ -38,8 +43,6 @@ app.use((err, req, res, next) => {
     });
 });
   
-
-
 app.listen(PORT, () => {
     console.log(`🚀 Server running http://localhost:${PORT}`);
   });

@@ -1,32 +1,56 @@
 import * as React from "react"
-import { BrowserRouter, Routes, Route} from "react-router-dom"
+import { BrowserRouter, Routes, Route, useNavigate} from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
 import Landing from "../Landing/Landing"
 import Register from "../Register/Register"
-import {useState, useEffect} from "react"
-
+import { useState, useEffect } from "react"
+import apiClient from "../../../../services/apiClient"
 
 import NoPage from "../NoPage/NoPage"
 import "./App.css"
 import LoginPage from "components/LoginPage/LoginPage"
 import ActivityPage from "components/ActivityPage/ActivityPage"
+import NutritionPage from "components/NutritionPage/NutritionPage"
 
 export default function App() {
-  let tempBool = false
 
   const [user, setUser] = useState({});
+  const [logoutError, setLogoutError] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
+  const [error, setError] = useState(null)
 
+
+  useEffect(() => {
+
+    const fetchUser = async () => {
+      const { data, error } = await apiClient.fetchUserFromToken()
+      if (data) setUser(data.user)
+      if (error) setError(error)
+    }
+    const token = localStorage.getItem("lifetracker_token")
+    if (token) {
+      apiClient.setToken(token)
+      fetchUser()
+    }
+  } , [])
+
+  
+  console.log(user)
 
   return (
+
     <div className="app">
       <React.Fragment>{
       
-      <BrowserRouter>
+        <BrowserRouter>
+          <Navbar user={user} setUser={setUser}
+          logoutError={logoutError} setLogoutError={setLogoutError} setError={setError}
+          />
+
           <main>
         <Routes>
           <Route path="/"element={
               <>
-                  <Navbar />
                   <Landing />
               </>
             }
@@ -34,23 +58,29 @@ export default function App() {
               
             <Route path="/activity" element={
             <>
-                <Navbar />
-                <ActivityPage />
+                  <ActivityPage user={user} setUser={setUser} logoutError={logoutError} setLogoutError={setLogoutError} />
             </>
             }
             />
               
+              <Route path="/nutrition" element={
+            <>
+                  <NutritionPage user={user} setUser={setUser} logoutError={logoutError} setLogoutError={setLogoutError} />
+                  
+            </>
+            }
+            />
+
+              
               <Route path="/login" element={
               <>
-                  <Navbar />
-                  <LoginPage />
+                  <LoginPage user={user} setUser={setUser} logoutError={logoutError} setLogoutError={setLogoutError}/>
               </>
             }
           />
 
           <Route path="/register" element={
               <>
-                  <Navbar />
                   <Register user={user} setUser={setUser}/>
               </>
             }

@@ -1,0 +1,201 @@
+.activity-page {
+    width: 100px;
+    max-width: 100vw;
+    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background: #2c4147;
+  }
+  .activity-page, .ActivityPage .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+  .activity-page .content {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #2c4147;
+
+}
+
+.activity-page .activity-feed {
+    max-width: 900px;
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+
+  .activity-page .activity-feed {
+
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    background: #2c4147;
+    margin-top: -80px;
+    margin-right: 460px;
+
+  }
+  .activity-page .actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 00px;
+
+  }
+  .activity-page .actions h2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 40px;
+    color: white;
+    margin-right: 165px;
+
+  }
+  .activity-page .actions .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-left: 400px;
+  }
+  .activity-page .main,
+  .activity-page .more {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 35px;
+    gap: 15px;
+  }
+  .activity-page h4 {
+    font-weight: 700;
+    font-size: 30px;
+    color: white;
+    margin-top: 35px;
+  }
+
+  .Button.outline.gold {
+    background: transparent;
+    color: #ffab09;
+    border: 1px solid #ffab09;
+}
+.Button.outline.gold:hover {
+    background: linear-gradient(64.7deg,#ffab09,#ffab09);
+    color:white
+  }
+  
+.Button.small {
+    padding: 10px 20px;
+    max-height: 40px;
+}
+
+.Button.outline.blue {
+    background: transparent;
+    color: #4e81eb;
+    border: 1px solid #4e81eb;
+}
+
+.Button.outline.blue:hover {
+    background: linear-gradient(64.7deg,#441dfc,#4e81eb);
+    color: white;
+}
+
+.Button.outline.aqua {
+    background: transparent;
+    color: #03c5d1;
+    border: 1px solid #03c5d1;
+}
+
+.Button.outline.aqua:hover{
+    background: linear-gradient(64.7deg,#03c5d1,#03c5d1);
+    color: white;
+    border: 1px solid #03c5d1;
+}
+
+.SummaryStat.gold, .SummaryStat.gold .background {
+    background: linear-gradient(64.7deg,#ffab09,#ffab09);;
+}
+
+.SummaryStat .background {
+    mix-blend-mode: normal;
+    justify-content: space-around;
+    padding: 16px 32px;
+}
+
+.SummaryStat, .SummaryStat .background {
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SummaryStat.purple .background {
+    background: linear-gradient(64.7deg,#441dfc,#4e81eb);
+
+
+}
+
+.SummaryStat.aqua .background {
+    background: linear-gradient(64.7deg,#03c5d1,#03c5d1);
+}
+
+.SummaryStat p {
+    color: white;
+    font-size: 20px;
+}
+
+.SummaryStat h1 {
+    color: white;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.SummaryStat.small .background {
+    height: 110px;
+}
+
+.SummaryStat.teal .background {
+    background: linear-gradient(64.7deg,#1000c9,#00c98e);;
+}
+.SummaryStat .background {
+    mix-blend-mode: normal;
+    justify-content: space-around;
+    padding: 16px 32px;
+}
+.SummaryStat, .SummaryStat .background {
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SummaryStat.small h1 {
+    font-size: 24px;
+}
+
+.SummaryStat.orange .background {
+    background:  linear-gradient(64.7deg,#8e3232,#c96d00);;
+}
+
+.SummaryStat.red .background {
+    background: linear-gradient(64.7deg,#c90000,rgba(251,112,144,0.85));;
+}
+
+
+
+.stats {
+    margin-top: -25px;
+}
+
