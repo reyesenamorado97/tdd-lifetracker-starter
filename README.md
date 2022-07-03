@@ -75,6 +75,32 @@ Implement any of the following features to improve the application:
 <br>
 
 
+### Reflection
+
+* Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
+
+The topics in the labs were absolutely essential to my success in this project, so far. Lab 2 taught me how to link the front end with the backend. More specifically, being able to submit forms using post requests tied to my submit buttons on the frontend.
+I felt unprepared to do the token portion of the project because that is a week 5 topic! I had to use the resources for that week to complete 
+
+* If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
+  
+I want to make more unique designs, but I feel like completing the core features is more important, so i take heavy inspiration from the example site given. I think this has benefitted me by focusing in on how react, postgres, node and express work. I still feel confident in my CSS abilities, anyway
+
+* Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+
+I think it went really well. I felt inclined to ask the CourseHero mentor some questions and got great responses. I learned a bunch from him in my demo alone! Nothing went wrong. I was able to show off everything I thought I should for the moment. 
+Some of my peers were a bit ahead, but that's fine. I see that I am very close to them and know exactly what I have to work on next and how to do it.
+
+### Open-source libraries used
+
+https://stackoverflow.com/questions/64409238/format-a-postgresql-create-timestamp-in-react-app 
+
+### Shout out
+
+Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+
+I would love to shout out Kiara and Likashmi for being great help when things went wrong, and for asking question when they were stuck. We kept a great pace together by doing so! Likashmi deserves more recognition for the immense improvement he has shown. He is clearly finding his footing and gaining confidence, which is amazing to see. He messages me on slack to get extra help also! He has clearly put in the effort to grow and learn. 
+
 ## Overview
 
 > Data is the new oil - Clive Humbly
@@ -880,4 +906,3 @@ Here are the pieces of functionality that should be built out for the backend:
 ## Wrapping Up and Resources
 
 This is a huge project and represents a complete application with user-owned resources. Accordingly, it can, should, and will test the limits of your capabilities. Do your best and don't be afraid to Google! Especially in regards to any SQL that might be tricky.
-
