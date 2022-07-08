@@ -63,6 +63,10 @@ export default function AccessForbidden({
                    <p className="error">You need to be logged in to access that page!</p>
                    
                         
+              {errors?.form ?
+                <p className="error">{ errors.form} </p>
+                : ""
+              }
                     
                         <br />
                         <div className="form">

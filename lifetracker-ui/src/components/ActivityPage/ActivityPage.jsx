@@ -1,6 +1,7 @@
 import AccessForbidden from "components/AccessForbidden/AccessForbidden"
 import { useState, useEffect } from "react"
 import ActivityFeed from "../ActivityFeed/ActivityFeed"
+import apiClient from "../../../../services/apiClient"
 
 import "./ActivityPage.css"
 
@@ -26,9 +27,8 @@ export default function ActivityPage({
                 :
                 
                 <div className="activity-page">
-                    <ActivityFeed/>
+                    <ActivityFeed user={user}/>
                 </div>}
-        
         </div>
 
     )

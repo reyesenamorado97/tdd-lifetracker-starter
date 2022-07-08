@@ -51,6 +51,22 @@ class ApiClient {
     async listNutritionForUser(user) {
         return await this.request({endpoint: `nutrition`, method: `GET`, data: user})
     }
+
+    async createNutrition(nutrition) {
+        return await this.request({endpoint: `nutrition`, method: `POST`, data: nutrition})
+    }
+
+    async fetchNutritionById(nutritionId){
+        return await this.request({endpoint: `nutrition/id/${nutritionId}`, method: `GET` })
+    }
+
+    async getCategoriesForUser(user) {
+        return await this.request({endpoint: `nutrition/categories`, method: `GET`, data: user})
+    }
+
+    async getDailyCalories(user) {
+        return await this.request({endpoint: `nutrition/calories`, method: `GET`, data: user})
+    }
 }
 
 export default new ApiClient(  "http://localhost:3001")

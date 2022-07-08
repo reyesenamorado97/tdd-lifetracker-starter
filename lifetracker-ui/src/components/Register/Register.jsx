@@ -10,6 +10,8 @@ export default function Register({ user, setUser }) {
 
     const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
+    const [errors, setErrors] = useState({});
+
     const navigate = useNavigate()
 
     const [form, setForm] = useState({
@@ -33,7 +35,7 @@ export default function Register({ user, setUser }) {
             //setIsProcessing(false);
             return;
           } else {
-           // setErrors((e) => ({ ...e, passwordConfirm: null }));
+            setErrors((e) => ({ ...e, passwordConfirm: null }));
           }
           const { data, error } = await apiClient.signupUser({
             first_name: form.firstName,
@@ -42,7 +44,7 @@ export default function Register({ user, setUser }) {
             email: form.email,
             password: form.password,
           });
-          //if (error) setErrors((e) => ({ ...e, form: error }));
+          if (error) setErrors((e) => ({ ...e, form: error }));
           if (data?.user) {
             setUser(data.user);
             apiClient.setToken(data.token);
@@ -79,12 +81,17 @@ export default function Register({ user, setUser }) {
         }
         setForm((f) => ({ ...f, [event.target.name]: event.target.value }));
 
+        console.log(errors?.form)
     }
 
     return (
         <div id="#register" className="Register">
             <div className="card">
                 <h2>Register</h2>
+                {errors?.form ?
+                <p className="error">{ errors.form} </p>
+                : ""
+              }
                 <br />
                 <div className="form">
                     <div className="input-field lines">

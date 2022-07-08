@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, useNavigate} from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
 import Landing from "../Landing/Landing"
 import Register from "../Register/Register"
-import { useState, useEffect } from "react"
+import { useState, useEffect, createContext } from "react"
 import apiClient from "../../../../services/apiClient"
 
 import NoPage from "../NoPage/NoPage"
@@ -11,6 +11,10 @@ import "./App.css"
 import LoginPage from "components/LoginPage/LoginPage"
 import ActivityPage from "components/ActivityPage/ActivityPage"
 import NutritionPage from "components/NutritionPage/NutritionPage"
+import NutritionNew from "components/NutritionNew/NutritionNew"
+import NutritionDetail from "components/NutritionDetail/NutritionDetail"
+
+
 
 export default function App() {
 
@@ -19,6 +23,15 @@ export default function App() {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState(null)
 
+
+  const userVal = {
+    state: {
+      user
+    },
+    setters: {
+      setUser
+    }
+  };
 
   useEffect(() => {
 
@@ -71,6 +84,21 @@ export default function App() {
             }
             />
 
+              <Route path="/nutrition/create" element={
+            <>
+                  <NutritionNew user={user} setUser={setUser} logoutError={logoutError} setLogoutError={setLogoutError} />
+                  
+            </>
+            }
+              />
+              
+              <Route path="nutrition/id/:nutritionId" element={
+            <>
+                  <NutritionDetail user={user} setUser={setUser} logoutError={logoutError} setLogoutError={setLogoutError} />
+                  
+            </>
+            }
+            />
               
               <Route path="/login" element={
               <>

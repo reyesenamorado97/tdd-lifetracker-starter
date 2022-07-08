@@ -1,12 +1,20 @@
 import "./NutritionPage.css"
 import NutritionFeed from "../NutritionFeed/NutritionFeed"
 import AccessForbidden from "components/AccessForbidden/AccessForbidden"
+import NutritionNew from "components/NutritionNew/NutritionNew"
+import { Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+
+
+
 export default function NutritionPage({
     user,
     setUser,
     logoutError,
-    setLogoutError }) {
+    setLogoutError,
+    }) {
     
+        const [errors, setErrors] = useState({});
 
     return (
         
@@ -23,7 +31,9 @@ export default function NutritionPage({
                         <div className="NutritionOverview">
                             <div className="header">
                                 <h3>Overview</h3>
-                                <button className="Button outline small outline aqua ">Record Nutrition</button>
+                                <Link to="/nutrition/create">
+                  <button className="Button outline small outline aqua ">Record Nutrition</button>
+                                </Link>
                             </div>
                             <div className="feed">
                                 <NutritionFeed />

@@ -73,9 +73,12 @@
   .activity-page .more {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 83vw;
     margin-top: 35px;
     gap: 15px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+
   }
   .activity-page h4 {
     font-weight: 700;
@@ -114,6 +117,7 @@
     background: transparent;
     color: #03c5d1;
     border: 1px solid #03c5d1;
+    margin-left: 247px;
 }
 
 .Button.outline.aqua:hover{
@@ -148,6 +152,7 @@
 
 .SummaryStat.aqua .background {
     background: linear-gradient(64.7deg,#03c5d1,#03c5d1);
+    
 }
 
 .SummaryStat p {
@@ -167,6 +172,7 @@
 
 .SummaryStat.teal .background {
     background: linear-gradient(64.7deg,#1000c9,#00c98e);;
+    
 }
 .SummaryStat .background {
     mix-blend-mode: normal;

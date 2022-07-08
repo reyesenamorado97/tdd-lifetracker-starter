@@ -1,0 +1,88 @@
+.nutrition-new h2 {
+    text-align: center;
+    font-size: 31px;
+    color: white;
+  }
+  .nutrition-new .error {
+    margin: 10px 0;
+    color: red;
+    text-align: center;
+  }
+  .nutrition-new .form-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 700px;
+    padding-bottom: 10px;
+    color: white;
+    margin: 0 auto;
+  }
+  .nutrition-new .form-input .split-input-field {
+    display: flex;
+    flex-direction: row;
+    gap: 55px;
+    width: 100%;
+    
+  }
+  .nutrition-new .form-input button {
+    flex: 1;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .InputField {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 8px 0;
+    flex: 1;
+  }
+  .InputField label {
+    margin-bottom: 5px;
+    color: white;
+  }
+  .InputField input {
+    height: 60px;
+    padding: 0 15px;
+    font-size: 16px;
+    width: 100%;
+    background: transparent;
+    color: white;
+    outline: none;
+    outline-style:
+    none; border-top:
+    none; border-left:
+    none; border-right:
+    none; border-bottom:
+    solid #eeeeee 1px;
+  }
+  .InputField input::placeholder {
+    color: #878787;
+  }
+  .InputField input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+  
+  .Button.primary.aqua {
+    color: white;
+    background: #03c5d1;
+}
+.Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease;
+    border: solid 1px transparent;
+    white-space: nowrap;
+  }
+  

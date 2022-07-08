@@ -15,16 +15,58 @@ class Nutrition {
                 n.created_at
         FROM nutrition AS n
         JOIN users AS u ON u.id = n.user_id
-        WHERE u.id = (SELECT id FROM users WHERE email = $1);
-        `,
+        WHERE u.id = (SELECT id FROM users WHERE email = $1)
+        ORDER BY n.created_at DESC        `,
           [user.email]
         );
     
         return results.rows;
-      }
-
+    }
+  
 //-----------------------------------------------------------------------------
 
+  static async getCategoriesForUser({ user }) {
+
+    
+    const results = await db.query(
+      `
+      SELECT DISTINCT n.category AS "category",
+      ROUND(AVG (n.calories)) AS "avgCaloriesPerCategory"
+      FROM nutrition AS n
+      JOIN users AS u ON u.id = n.user_id
+      WHERE u.id = (SELECT id FROM users WHERE email = $1)
+      GROUP BY n.category
+      `,
+      [user.email]
+      
+    );
+    return results.rows
+  }        
+
+  
+//-----------------------------------------------------------------------------
+
+static async getDailyCalories({ user }) {
+
+    
+  const results = await db.query(
+    `
+    SELECT to_char(n.created_at, 'MM/DD/YYYY') AS "date",
+    ROUND(AVG (n.calories)) AS "totalCaloriesPerDay"
+    FROM nutrition AS n
+    JOIN users AS u ON u.id = n.user_id
+    WHERE u.id = (SELECT id FROM users WHERE email = $1)
+    GROUP BY date
+    `,
+    [user.email]
+    
+  );
+
+  return results.rows
+}        
+  
+  
+  
     static async createNutrition({ nutrition, user }) {
       
         const requiredFields = [
@@ -43,7 +85,7 @@ class Nutrition {
         })
 
      if (!user) {
-       throw new BadRequestError("No user provided");
+       throw new BadRequestError("No user provided!");
      }
       
     const results = await db.query(
@@ -61,6 +103,38 @@ class Nutrition {
 
     );
     return results.rows[0];
+    }
+  
+  
+  
+    static async fetchNutritionById(id){
+      if(!id) {
+          throw new BadRequestError("No id provided!")
+      }
+      const results = await db.query(
+        `
+          SELECT n.id,
+                n.name,
+                n.category,
+                n.calories,
+                n.image_url AS "imageUrl",
+                n.user_id AS "userId",
+                to_char(n.created_at, 'DD/MM/YYYY') AS "createdAt",
+                n.quantity,
+                u.email AS "userEmail"
+                
+          FROM nutrition AS n
+          LEFT JOIN users AS u ON u.id = n.user_id
+          WHERE n.id = $1
+        `,
+        [id]
+      )
+
+      const nutrition = results.rows[0]
+      if (!nutrition) {
+        throw new NotFoundError("Nutrition not found!")
+      }
+      return nutrition
   }
 }
 

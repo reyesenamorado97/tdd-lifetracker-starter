@@ -18,6 +18,8 @@ export default function LoginPage({
       email: "",
       password: "",
     });
+  
+
 
     const handleOnSubmit = async () => {
         setErrors((e) => ({ ...e, form: null }));
@@ -39,7 +41,8 @@ export default function LoginPage({
             if (!event.target.value.includes("@") || event.target.value[0] == "@") {
                 setErrors((e) => ({ ...e, email: "Please enter a valid email." }));
           } else {
-            setErrors((e) => ({ ...e, email: null }));
+              setErrors((e) => ({ ...e, email: null })
+              ); 
           }
         }
         
@@ -66,6 +69,12 @@ export default function LoginPage({
                        :
                             ""
                         }
+
+              {errors?.form ?
+                <p className="error">{ errors.form} </p>
+                : ""
+              }
+              
                             <br />
                             <div className="form">
                                 <div className="input-field">

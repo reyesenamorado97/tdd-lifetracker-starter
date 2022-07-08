@@ -18,13 +18,13 @@ Deployed Application: [](ADD_LINK_HERE)
 - [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
 - [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
 - [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
-- [ ] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
+- [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] Deployed website with Heroku & Surge. 
 
 **Detailed Activity Page:**
-- [ ] The detailed activity page should display a feed of all previous tracked activities.
-- [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
-- [ ] The activity tracked should be given a unique id for easy lookup.
+- [] The detailed activity page should display a feed of all previous tracked activities.
+- [] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
+- [x] The activity tracked should be given a unique id for easy lookup.
   `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
   * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
 
@@ -370,7 +370,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] The `ActivityContextProvider` component should create state variables and updaters needed for `activity`, `initialized`, `isLoading`, and `error`.
       - [ ] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
       - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
-        - [ ] That hook should check to see if a user is logged in.
+        - [x] That hook should check to see if a user is logged in.
         - [ ] If a user is logged in...
           - [ ] Set the `isLoading` state variable to `true` and the `error` state variable to `null`
           - [ ] Then, it should make a `GET` request to the `/activity` endpoint
@@ -383,7 +383,7 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] Create and export a `useActivityContext` hook that calls the `React.useContext` hook with the newly created `ActivityContext` and returns it.
     - [ ] In the `App.jsx` file, nest the `ActivityContextProvider` inside the `AuthContextProvider`.
 
-  - [ ] The **`ActivityPage.jsx`** component:
+  - [x] The **`ActivityPage.jsx`** component:
 
     - [ ] Should render JSX that is wrapped by an element with the `className` of `activity-page`
     - [ ] It should call the `useActivityContext` hook and extract all the necessary data from it.
@@ -442,10 +442,10 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
-    - [ ] Should render a nested `Routes` component from `react-router-dom`.
-      - [ ] There should be multiple `Route` components:
-        - [ ] The `/nutrition` route should render the `NutritionOverview.jsx` component
+    - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
+    - [x] Should render a nested `Routes` component from `react-router-dom`.
+      - [x] There should be multiple `Route` components:
+        - [x] The `/nutrition` route should render the `NutritionOverview.jsx` component
         - [ ] The `/nutrition/create` route should render the `NutritionNew.jsx` component
         - [ ] The `/nutrition/id/:nutritionId` should render the `NutritionDetail.jsx` component
         - [ ] Any other route should render the `NotFound` component
@@ -477,21 +477,21 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-form`
     - [ ] Should render an input element for the following fields:
-      - [ ] `name` - name of the nutrition item (defaults to an empty string)
+      - [x] `name` - name of the nutrition item (defaults to an empty string)
       - [ ] `calories` - number of calories in the nutrition item (defaults to 1)
       - [ ] `imageUrl` - the `url` of an image to show for this nutrition item (defaults to an empty string)
       - [ ] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
-      - [ ] `onChange` - the `onChange` handler function
+      - [x] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
+      - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [x] `value` - the current value of the `input` element
+      - [x] `onChange` - the `onChange` handler function
     - [ ] The component should gracefully handle errors:
-      - [ ] If any of the required fields are left blank, there should be an error message inside of an element with the `className` of `error` indicating which fields are required.
-      - [ ] If the user has attempted to create a nutrition entry and gotten a `400` or `422` error, then that message should be displayed inside an element with the `className` of `error`
-    - [ ] There should be a `button` element with the `className` of `submit-nutrition`:
-      - [ ] It should contain the text `"Save"`
-      - [ ] When clicked, it should call a function that creates a new nutrition entry
+      - [x] If any of the required fields are left blank, there should be an error message inside of an element with the `className` of `error` indicating which fields are required.
+      - [x] If the user has attempted to create a nutrition entry and gotten a `400` or `422` error, then that message should be displayed inside an element with the `className` of `error`
+    - [x] There should be a `button` element with the `className` of `submit-nutrition`:
+      - [x] It should contain the text `"Save"`
+      - [x] When clicked, it should call a function that creates a new nutrition entry
     - [ ] After the form has been succesfully submitted:
       - [ ] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
       - [ ] Refetch the `activity` data so that new summary stats will be calculated
