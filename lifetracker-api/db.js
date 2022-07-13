@@ -8,7 +8,7 @@ const db = new Client({ connectionString: getDatabaseUri() })
 
 db.connect((err) => {
     if (err) {
-        console.error("connection error", red, err.stack)
+        console.error("connection error".red, err.stack)
 
     }
     else {

@@ -1,7 +1,7 @@
 import AccessForbidden from "components/AccessForbidden/AccessForbidden"
 import { useState, useEffect } from "react"
 import ActivityFeed from "../ActivityFeed/ActivityFeed"
-import apiClient from "../../../../services/apiClient"
+import apiClient from "../../../services/apiClient"
 
 import "./ActivityPage.css"
 

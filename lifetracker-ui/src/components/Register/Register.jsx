@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Register.css"
 import { useState, useEffect } from "react"
 
-import apiClient from "../../../../services/apiClient"
+import apiClient from "../../../services/apiClient"
 
 
 export default function Register({ user, setUser }) {

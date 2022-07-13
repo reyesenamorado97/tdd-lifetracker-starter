@@ -1,7 +1,7 @@
 import "./NutritionFeed.css"
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import apiClient from "../../../../services/apiClient";
+import apiClient from "../../../services/apiClient";
 
 export default function NutritionDetails({ user }) {
   const [isFetching, setFetching] = useState(false);

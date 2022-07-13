@@ -1,6 +1,6 @@
 import "./NutritionNew.css"
 import AccessForbidden from "components/AccessForbidden/AccessForbidden"
-import apiClient from "../../../../services/apiClient";
+import apiClient from "../../../services/apiClient";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NutritionForm from "../NutritionForm/NutritionForm"

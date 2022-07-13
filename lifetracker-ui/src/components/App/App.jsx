@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar"
 import Landing from "../Landing/Landing"
 import Register from "../Register/Register"
 import { useState, useEffect, createContext } from "react"
-import apiClient from "../../../../services/apiClient"
+import apiClient from "../../../services/apiClient"
 
 import NoPage from "../NoPage/NoPage"
 import "./App.css"

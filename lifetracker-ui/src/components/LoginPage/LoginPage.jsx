@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import apiClient from "../../../../services/apiClient";
+import apiClient from "../../../services/apiClient";
 import { useState, useEffect } from "react"
 
 import "./LoginPage.css"
