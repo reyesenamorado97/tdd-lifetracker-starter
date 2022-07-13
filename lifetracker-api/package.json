@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
+
   },
   "keywords": [],
   "author": "",
@@ -20,4 +21,5 @@
     "nodemon": "^2.0.18",
     "pg": "^8.7.3"
   }
+  
 }
